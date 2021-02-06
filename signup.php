@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>MyBook</title>
+        <title>MyBook | Sign up</title>
     </head>
     <style>
         #bar{
@@ -48,14 +48,25 @@
     <body style="font-family:tahoma; background-color:#e9ebee">
         <div id="bar">
             <div style="font-size: 40px; width: 50px;" >MyBook</div>
-            <div id="signup_button">Signup</div>
+            <div id="signup_button">Login</div>
         </div>
 
         <div id="bar2">
-            Log in to MyBook<br><br>
+            Sign up to MyBook<br><br>
+            <input type="text" id="text" placeholder="First name"><br><br>
+            <input type="text" id="text" placeholder="Last bame"><br><br>
+            <span style="font-weight:normal;">Gender:</span><br>
+            <select id="text">
+
+                <option>Male</option>
+                <option>Female</option>
+
+            </select>
+            <br><br>
             <input type="text" id="text" placeholder="Email"><br><br>
             <input type="password" id="text" placeholder="Password"><br><br>
-            <input type="submit" id="button" value="Login in">
+            <input type="password" id="text" placeholder="Retype Password"><br><br>
+            <input type="submit" id="button" value="Sign up">
             <br><br>
         </div>
     </body>
