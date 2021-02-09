@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>MyBook</title>
+        <title>MyBook | Log in</title>
     </head>
     <style>
         #bar{
