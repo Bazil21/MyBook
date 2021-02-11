@@ -11,6 +11,7 @@ class signup{
             {
                 $this->error = $this->error. $key . " is empty!<br>";
             }
+<<<<<<< HEAD
             if($key == "email")
             {
                 if(!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $value))
@@ -39,6 +40,8 @@ class signup{
                 }
             }   
 
+=======
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
         }
         if($this->error == "")
         {
@@ -53,8 +56,13 @@ class signup{
 
     public function create_user($data)
     {
+<<<<<<< HEAD
         $first_name = ucfirst($data['first_name']);
         $last_name = ucfirst($data['last_name']);
+=======
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
         $gender = $data['gender'];
         $email = $data['email'];
         $password = $data['password'];

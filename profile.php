@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 session_start();
@@ -6,6 +7,8 @@ print_r($_SESSION);
 ?>
 
 
+=======
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
 <html>
     <head>
     <title>Profile | MyBook</title>

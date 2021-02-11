@@ -19,11 +19,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo $result;
         echo "</div>";
     }
+<<<<<<< HEAD
     else
     {
     	header("Location: Login.php");
     	die;
     }
+=======
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
     
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
