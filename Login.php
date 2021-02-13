@@ -1,6 +1,47 @@
+<?php
+
+
+session_start();
+
+    include("classess/connect.php");
+    include("classess/login.php");
+    $email = "";
+    $password = "";
+
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
+    $login = new  Login();
+    $result = $login->evaluate($_POST);
+
+    if($result != "")
+    {
+        echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
+        echo "<br>The following errors occured:<br><br>";
+        echo $result;
+        echo "</div>";
+    }
+    else
+    {
+        header("Location: profile.php");
+        die;
+    }
+    
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+}
+
+
+    
+
+
+?>
+
+
+
 <html>
     <head>
-        <title>MyBook</title>
+        <title>MyBook | Log in</title>
     </head>
     <style>
         #bar{
@@ -52,11 +93,13 @@
         </div>
 
         <div id="bar2">
-            Log in to MyBook<br><br>
-            <input type="text" id="text" placeholder="Email"><br><br>
-            <input type="password" id="text" placeholder="Password"><br><br>
-            <input type="submit" id="button" value="Login in">
-            <br><br>
+            <form method="post">
+                Log in to MyBook<br><br>
+                <input name="email" value="<?php echo $email ?>" type="text" id="text" placeholder="Email"><br><br>
+                <input name="password" value="<?php echo $password ?>" type="password" id="text" placeholder="Password"><br><br>
+                <input type="submit" id="button" value="Login in">
+                <br><br>
+            </form>
         </div>
     </body>
 </html>
