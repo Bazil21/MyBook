@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
     session_start();
@@ -42,10 +43,22 @@
             die;
 
     }
+=======
+<<<<<<< HEAD
+<?php
+
+session_start();
+print_r($_SESSION);
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
 
 ?>
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
 <html>
     <head>
     <title>Profile | MyBook</title>
@@ -133,10 +146,14 @@
     <div id="blue_bar">
  		<div style="width: 800px; margin: auto; font-size: 30px;">
  			MyBook &nbsp &nbsp <input type="text" id="search_box" placeholder="Search for people">
+<<<<<<< HEAD
             <img src="selfie.jpg" style="width: 50px; float: right;">
             <a href="Logout.php">
              <span style="font-size: 11px;float: right;margin: 10px; color: white;">Logout</span>
             </a>
+=======
+ 			<img src="selfie.jpg" style="width: 50px; float: right;">
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
  		</div>
     </div>
 
@@ -147,7 +164,11 @@
     	<div style="background-color: white; text-align: center; color: #405d9b;">
     		<img src="mountain.jpg" width="100%">
     		<img id="profile_pics" src="selfie.jpg"><br>
+<<<<<<< HEAD
     			<div style="font-size: 20px;"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></div>
+=======
+    			<div style="font-size: 20px;">Mary Banda</div>
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
     		<br><br>
 
     		<div id="menu_buttons">Timeline</div> 

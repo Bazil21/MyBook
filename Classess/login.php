@@ -20,7 +20,11 @@ class Login
         	if ($password == $row['password'])
         	{
         		//create a session data
+<<<<<<< HEAD
         		$_SESSION['mybook_userid'] = $row['userid'];
+=======
+        		$_SESSION['userid'] = $row['userid'];
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
 			}
 			else
 	        {
@@ -35,6 +39,7 @@ class Login
         return $this->error;
 
     }
+<<<<<<< HEAD
 
     public function check_login($id)
     {
@@ -71,6 +76,8 @@ class Login
 
 
 
+=======
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
 }
 
 
