@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
     session_start();
@@ -8,6 +7,7 @@
     include("classess/connect.php");
     include("classess/login.php");
     include("classess/user.php");
+    include("classess/post.php");
 
     //checked if user is logged in
     if (isset($_SESSION['mybook_userid']) && is_numeric($_SESSION['mybook_userid'])) 
@@ -43,22 +43,19 @@
             die;
 
     }
-=======
-<<<<<<< HEAD
-<?php
 
-session_start();
-print_r($_SESSION);
->>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
+    //for posting
+    if ($_SERVER['REQUEST_METHOD'] == "POST") 
+    {
+        # code...
+        $post = new Post();
+        $id = $_SESSION['mybook_userid'];
+        $result = $post->create_post($id,$_POST);
+    }
 
 ?>
 
 
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
->>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
 <html>
     <head>
     <title>Profile | MyBook</title>
@@ -146,14 +143,10 @@ print_r($_SESSION);
     <div id="blue_bar">
  		<div style="width: 800px; margin: auto; font-size: 30px;">
  			MyBook &nbsp &nbsp <input type="text" id="search_box" placeholder="Search for people">
-<<<<<<< HEAD
             <img src="selfie.jpg" style="width: 50px; float: right;">
             <a href="Logout.php">
              <span style="font-size: 11px;float: right;margin: 10px; color: white;">Logout</span>
             </a>
-=======
- 			<img src="selfie.jpg" style="width: 50px; float: right;">
->>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
  		</div>
     </div>
 
@@ -164,11 +157,7 @@ print_r($_SESSION);
     	<div style="background-color: white; text-align: center; color: #405d9b;">
     		<img src="mountain.jpg" width="100%">
     		<img id="profile_pics" src="selfie.jpg"><br>
-<<<<<<< HEAD
     			<div style="font-size: 20px;"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></div>
-=======
-    			<div style="font-size: 20px;">Mary Banda</div>
->>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
     		<br><br>
 
     		<div id="menu_buttons">Timeline</div> 
@@ -210,9 +199,11 @@ print_r($_SESSION);
 	    		<!-- post area -->
 	    		<div style=";flex:2.5;padding:20px;padding-right:0px;">
 	    			<div style="border: solid thin #aaa; padding:10px; background-color: white;">
-	    				<textarea placeholder="Whats on your mind?"></textarea>
+                        <form method="post">
+	    				<textarea name="post" placeholder="Whats on your mind?"></textarea>
 	    				<input type="submit" id="post_button" value="Post">
 	    				<br><br>
+                        </form>
 	    			</div>
 	    			<!-- post -->
 		    			<div id="post_bar">
