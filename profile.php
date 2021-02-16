@@ -51,7 +51,25 @@
         $post = new Post();
         $id = $_SESSION['mybook_userid'];
         $result = $post->create_post($id,$_POST);
+
+        if ($result == "")
+         {
+            # code...
+            header("Location: profile.php");
+            die;
+        }
+        else
+        {
+            echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
+        echo "<br>The following errors occured:<br><br>";
+        echo $result;
+        echo "</div>";
+        }
     }
+    //collect posts
+        $post = new Post();
+        $id = $_SESSION['mybook_userid'];
+        $posts = $post->get_posts($id);
 
 ?>
 
@@ -208,47 +226,21 @@
 	    			<!-- post -->
 		    			<div id="post_bar">
 
-		    				<!-- Post 1 -->
-		    				<div id="post">
-		    					<div>
-		    						<img src="user1.jpg" style="width: 75px; margin-right: 4px;">
-		    					</div>
-		    					<div>
-		    						<div  style="font-weight: bold;color:#405d9b ">First Guy</div>
-		    						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-		    						<br><br>
-		    						<a href="">Like </a>	<a href="">.Comment</a>	<span style="color: #999;">. April 23 2020</span>
-		    					</div>
+		    				<?php
+                            if ($posts) 
+                            {
+                                foreach ($posts as $ROW) 
+                                {
+                                    $user = new User();
+                                    $ROW_USER = $user->get_user($ROW['userid']); 
+                                     include("post.php");
+                                }
+                            }
 
-		    				</div>
+                                
+
+                            ?>
 		    				
-		    				<!-- Post 2 -->
-		    				<div id="post">
-		    					<div>
-		    						<img src="user2.jpg" style="width: 75px; margin-right: 4px;">
-		    					</div>
-		    					<div>
-		    						<div  style="font-weight: bold;color:#405d9b ">African Dude</div>
-		    						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-		    						<br><br>
-		    						<a href="">Like </a>	<a href="">.Comment</a>	<span style="color: #999;">. April 23 2020</span>
-		    					</div>
-
-		    				</div>
-
-		    				<!-- Post 3 -->
-		    				<div id="post">
-		    					<div>
-		    						<img src="user1.jpg" style="width: 75px; margin-right: 4px;">
-		    					</div>
-		    					<div>
-		    						<div  style="font-weight: bold;color:#405d9b ">First Guy</div>
-		    						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-		    						<br><br>
-		    						<a href="">Like </a>	<a href="">.Comment</a>	<span style="color: #999;">. April 23 2020</span>
-		    					</div>
-
-		    				</div>
 		    			</div>
 
 	    		</div>
