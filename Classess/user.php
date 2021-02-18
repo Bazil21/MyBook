@@ -38,6 +38,7 @@ class User
 			return false;
 		}
 	}
+<<<<<<< HEAD
 
 	public function get_friends($id)
 	{
@@ -54,6 +55,8 @@ class User
 			return false;
 		}
 	}
+=======
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
 }
 
 
