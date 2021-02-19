@@ -8,6 +8,7 @@
     include("classess/login.php");
     include("classess/user.php");
     include("classess/post.php");
+    include("classess/image.php");
 
 
     $login = new Login();
@@ -17,10 +18,17 @@
        
         if(isset($_FILES['file']['name']) && $_FILES['file']['name'] != "")
         {    
-            $filename = "uploads/" . $_FILES['file']['name'];
-            move_uploaded_file(
-                $_FILES['file']['tmp_name'], $filename);
-            if(file_exists($filename))
+            if($_FILES['file']['type'] == "image/jpeg")
+            {
+                $allowed_size = (1024 * 1024) * 3;
+                if($_FILES['file']['size'] < $allowed_size)
+                {
+                    // every this fine
+                            $filename = "uploads/" . $_FILES['file']['name'];
+                            move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+                            $image = new Image();
+                            $image->crop_image($filename,$filename,800,800);
+                if(file_exists($filename))
             {
                 $userid = $user_data['userid'];
                 $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
@@ -31,6 +39,24 @@
                 die;
             }
 
+                }
+                else
+                {
+                         echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
+                        echo "<br>The following errors occured:<br><br>";
+                        echo "Only image of size 3mb or lower are allowed!";
+                        echo "</div>";
+                }
+
+            }
+            else
+            {
+                echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
+                echo "<br>The following errors occured:<br><br>";
+                echo "Only image jpeg type are allowed!";
+                echo "</div>";
+            }
+           
         }
         else
         {
