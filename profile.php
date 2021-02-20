@@ -9,46 +9,9 @@
     include("classess/user.php");
     include("classess/post.php");
 
-<<<<<<< HEAD
 
     $login = new Login();
     $user_data = $login->check_login($_SESSION['mybook_userid']);
-=======
-    //checked if user is logged in
-    if (isset($_SESSION['mybook_userid']) && is_numeric($_SESSION['mybook_userid'])) 
-    {
-
-        $id = $_SESSION['mybook_userid'];
-        $login = new Login();
-        $result = $login->check_login($id);
-
-
-        if($result)
-        {
-            //retrive user data
-            $user = new User();
-            $user_data = $user->get_data($id);
-
-            if(!$user_data) 
-            {
-                header("Location: Login.php");
-                die;
-            }
-
-        }
-        else
-        {
-            header("Location: Login.php");
-            die;
-        }
-    }
-    else
-    {
-            header("Location: Login.php");
-            die;
-
-    }
->>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
 
     //for posting
     if ($_SERVER['REQUEST_METHOD'] == "POST") 
@@ -77,14 +40,11 @@
         $id = $_SESSION['mybook_userid'];
         $posts = $post->get_posts($id);
 
-<<<<<<< HEAD
         //COLLECT FRIENDS
         $user = new User();
         $id = $_SESSION['mybook_userid'];
         $friends = $user->get_friends($id);
 
-=======
->>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
 ?>
 
 
@@ -171,31 +131,22 @@
 
     <body style="font-family: tahoma; background-color: #d0d8e4;">
 
-<<<<<<< HEAD
     	
     <!-- cover area -->
     <br>
     <?php include("header.php"); ?>
-=======
-    	<!-- top bar -->
-    <div id="blue_bar">
- 		<div style="width: 800px; margin: auto; font-size: 30px;">
- 			MyBook &nbsp &nbsp <input type="text" id="search_box" placeholder="Search for people">
-            <img src="selfie.jpg" style="width: 50px; float: right;">
-            <a href="Logout.php">
-             <span style="font-size: 11px;float: right;margin: 10px; color: white;">Logout</span>
-            </a>
- 		</div>
-    </div>
-
-    <!-- cover area -->
-    <br>
->>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
     <div style="width: 800px; margin: auto; min-height: 400px;">
 
     	<div style="background-color: white; text-align: center; color: #405d9b;">
-    		<img src="mountain.jpg" width="100%">
-<<<<<<< HEAD
+            <?php 
+                $image = "";
+                if(file_exists($user_data['cover_image']))
+                {
+                    $image = $user_data['cover_image'];
+                 
+                }
+                ?>
+    		<img src="<?php echo $image?>" width="100%">
     		<span style="font-size: 11px;">
                 <?php 
                 $image = "";
@@ -206,20 +157,14 @@
                 }
                 ?>
                 <img id="profile_pics" src="<?php echo $image ?>"><br/>
-                <a href="change_profile_image.php" style="text-decoration: none; color: #f0f">Change Image</a>
+                <a href="change_profile_image.php?change=profile" style="text-decoration: none; color: #f0f">Change Image</a>
+                <a href="change_profile_image.php?change=cover" style="text-decoration: none; color: #f0f"> | Change Cover</a>
             </span>
             <br>
     			<div style="font-size: 20px;"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></div>
     		<br><br>
 
     		<a href="index.php"><div id="menu_buttons">Timeline</div></a> 
-=======
-    		<img id="profile_pics" src="selfie.jpg"><br>
-    			<div style="font-size: 20px;"><?php echo $user_data['first_name'] . " " . $user_data['last_name'] ?></div>
-    		<br><br>
-
-    		<div id="menu_buttons">Timeline</div> 
->>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
 		    <div id="menu_buttons">About</div>
 		    <div id="menu_buttons">Friends</div>
 		    <div id="menu_buttons">Photos</div>
@@ -234,7 +179,6 @@
 	    			<div id="friends_bar">
 	    				Friends<br>
 
-<<<<<<< HEAD
                         <?php
                             if ($friends) 
                             {
@@ -250,27 +194,6 @@
                             ?>
 
 		    			
-=======
-		    			<div id="friends">
-		    				<img id="friends_img" src="user1.jpg"><br>
-		    				First User
-		    			</div>
-
-		    			<div id="friends">
-		    				<img id="friends_img" src="user2.jpg"><br>
-		    				Second User
-		    			</div>
-
-		    			<div id="friends">
-		    				<img id="friends_img" src="user3.jpg"><br>
-		    				African Girl
-		    			</div>
-
-		    			<div id="friends">
-		    				<img id="friends_img" src="user4.jpg"><br>
-		    				African Dude
-		    			</div>
->>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
 	    			</div>
 	    		</div>
 	    		<!-- post area -->

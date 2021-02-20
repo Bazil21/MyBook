@@ -24,23 +24,43 @@
                 if($_FILES['file']['size'] < $allowed_size)
                 {
                     // every this fine
-                            $filename = "uploads/" . $_FILES['file']['name'];
-                            move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-                            $image = new Image();
-                            $image->crop_image($filename,$filename,800,800);
+                     $filename = "uploads/" . $_FILES['file']['name'];
+                    move_uploaded_file($_FILES['file']['tmp_name'], $filename);
+                        $change = "profile";
+
+                // check for mode
+                if(isset($_GET['change']))
+                {
+                    $change = $_GET['change'];
+                }
+                    $image = new Image();
+                    if($change == "cover")
+                {
+                            $image->crop_image($filename,$filename,1366,488);
+                }
+                else
+                {
+                     $image->crop_image($filename,$filename,800,800);
+                }
                 if(file_exists($filename))
-            {
-                $userid = $user_data['userid'];
-                $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
+                {
+                    $userid = $user_data['userid'];
+
+                
+                     $query ="update users set cover_image = '$filename' where userid = '$userid' limit 1";
+                }
+                else
+                {
+                    $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
+                }
+                
                 $DB = new Database();
                 $DB->save($query);
 
                 header("Location: profile.php");
                 die;
             }
-
-                }
-                else
+            else
                 {
                          echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
                         echo "<br>The following errors occured:<br><br>";
@@ -48,24 +68,28 @@
                         echo "</div>";
                 }
 
-            }
-            else
+        }
+        else
             {
                 echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
                 echo "<br>The following errors occured:<br><br>";
                 echo "Only image jpeg type are allowed!";
                 echo "</div>";
             }
-           
-        }
-        else
-        {
+                
+
+            }
+            
+           else
+            {
             echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";
             echo "<br>The following errors occured:<br><br>";
             echo "Please upload a valid Image!";
             echo "</div>";
+            }
         }
-    }
+        
+    
 ?>
 
 <!DOCTYPE html>
