@@ -13,6 +13,8 @@
 
     $login = new Login();
     $user_data = $login->check_login($_SESSION['mybook_userid']);
+     
+     //posting starts here 
      if ($_SERVER['REQUEST_METHOD'] == "POST") 
     {
        
@@ -20,21 +22,29 @@
         {    
             if($_FILES['file']['type'] == "image/jpeg")
             {
-                $allowed_size = (1024 * 1024) * 3;
+                $allowed_size = (1024 * 1024) * 7;
                 if($_FILES['file']['size'] < $allowed_size)
                 {
                     // every this fine
-                     $filename = "uploads/" . $_FILES['file']['name'];
+                    $folder= "uploads/" . $user_data['userid']."/";
+                    //create folder
+                    if (!file_exists($folder)) 
+                    {
+                        mkdir($folder,0777,true);
+                        
+                    }
+                     $image = new Image();
+                     $filename = $folder . $image->generate_filename(15);
                     move_uploaded_file($_FILES['file']['tmp_name'], $filename);
-                        $change = "profile";
-
+                $change = "profile";
                 // check for mode
                 if(isset($_GET['change']))
                 {
                     $change = $_GET['change'];
                 }
-                    $image = new Image();
-                    if($change == "cover")
+                   
+
+                if($change == "cover")
                 {
                             $image->crop_image($filename,$filename,1366,488);
                 }
@@ -42,24 +52,28 @@
                 {
                      $image->crop_image($filename,$filename,800,800);
                 }
-                if(file_exists($filename))
+                
+                 if(file_exists($filename))
                 {
                     $userid = $user_data['userid'];
-
+                   
+                if($change == "cover")
+                {
                 
-                     $query ="update users set cover_image = '$filename' where userid = '$userid' limit 1";
+                            $query ="update users set cover_image = '$filename' where userid = '$userid' limit 1";
                 }
                 else
                 {
-                    $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
+                     $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
                 }
-                
+               
                 $DB = new Database();
                 $DB->save($query);
 
                 header("Location: profile.php");
                 die;
             }
+        }
             else
                 {
                          echo "<div style = 'text-align:center;font-size:12px; color:white;background-color:grey;'>";

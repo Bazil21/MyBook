@@ -150,13 +150,17 @@
     		<span style="font-size: 11px;">
                 <?php 
                 $image = "";
+                // if($user_data['gender']== "Female")
+                // {
+                //     $image = "image/female_user.jpg";
+                // }
                 if(file_exists($user_data['profile_image']))
                 {
                     $image = $user_data['profile_image'];
                  
                 }
                 ?>
-                <img id="profile_pics" src="<?php echo $image ?>"><br/>
+                <img id="profile_pics" src="<?php echo $image ?>" alt ="Profile_Image"><br/>
                 <a href="change_profile_image.php?change=profile" style="text-decoration: none; color: #f0f">Change Image</a>
                 <a href="change_profile_image.php?change=cover" style="text-decoration: none; color: #f0f"> | Change Cover</a>
             </span>
