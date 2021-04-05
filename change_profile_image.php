@@ -46,11 +46,19 @@
 
                 if($change == "cover")
                 {
+<<<<<<< HEAD
                             $image->resize_image($filename,$filename,1500,1500);
                 }
                 else
                 {
                      $image->resize_image($filename,$filename,1500,1500);
+=======
+                            $image->crop_image($filename,$filename,1366,488);
+                }
+                else
+                {
+                     $image->crop_image($filename,$filename,800,800);
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
                 }
                 
                  if(file_exists($filename))
@@ -170,6 +178,7 @@
                         <input type="file" name="file">
 	    				<input type="submit" id="post_button" value="Change">
 	    				<br><br>
+<<<<<<< HEAD
                         <div style="text-align:center;">
                         <br><br>
                         <?php 
@@ -187,6 +196,8 @@
 
                         ?>
                         </div>
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 	    			</div>
 	    		</form>
 

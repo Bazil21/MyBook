@@ -20,7 +20,19 @@ class Login
         	if ($password == $row['password'])
         	{
         		//create a session data
+<<<<<<< HEAD
         		$_SESSION['mybook_userid'] = $row['userid'];
+=======
+<<<<<<< HEAD
+        		$_SESSION['mybook_userid'] = $row['userid'];
+=======
+<<<<<<< HEAD
+        		$_SESSION['mybook_userid'] = $row['userid'];
+=======
+        		$_SESSION['userid'] = $row['userid'];
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 			}
 			else
 	        {
@@ -35,6 +47,10 @@ class Login
         return $this->error;
 
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 
     public function check_login($id)
     {
@@ -66,6 +82,50 @@ class Login
 
     }
 
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+
+    public function check_login($id)
+    {
+    	 $query = "select userid from users where userid = '$id' limit 1";
+        
+        $DB = new Database();
+        $result = $DB->read($query);
+
+        if ($result) 
+        {
+
+        	return true;
+
+        }
+
+
+        	return false;	
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 }
 
 

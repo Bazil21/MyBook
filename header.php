@@ -1,4 +1,5 @@
 <!-- top bar -->
+<<<<<<< HEAD
 <?php 
     $corner_image = "image/male_user.jpg";
     if(isset($user_data))
@@ -7,13 +8,19 @@
     }
 
 ?>
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
     <div id="blue_bar">
  		<div style="width: 800px; margin: auto; font-size: 30px;">
 
  			<a href="index.php" style="color: white; text-decoration: none;"> MyBook </a>
             &nbsp &nbsp <input type="text" id="search_box" placeholder="Search for people">
             <a href="profile.php">
+<<<<<<< HEAD
             <img src="<?php echo $corner_image ?>" style="width: 50px; float: right;">
+=======
+            <img src="selfie.jpg" style="width: 50px; float: right;">
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
         	</a>
             <a href="Logout.php">
              <span style="font-size: 11px;float: right;margin: 10px; color: white;">Logout</span>

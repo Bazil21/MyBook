@@ -8,7 +8,10 @@
     include("classess/login.php");
     include("classess/user.php");
     include("classess/post.php");
+<<<<<<< HEAD
 	include("classess/image.php");
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 
 
     $login = new Login();
@@ -46,8 +49,11 @@
         $id = $_SESSION['mybook_userid'];
         $friends = $user->get_friends($id);
 
+<<<<<<< HEAD
 		$image_class = new Image();
 
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 ?>
 
 
@@ -142,16 +148,24 @@
 
     	<div style="background-color: white; text-align: center; color: #405d9b;">
             <?php 
+<<<<<<< HEAD
                 $image = "image/cover_image.jpg";
                 if(file_exists($user_data['cover_image']))
                 {
                     $image = $image_class->get_thumb_cover($user_data['cover_image']);
+=======
+                $image = "";
+                if(file_exists($user_data['cover_image']))
+                {
+                    $image = $user_data['cover_image'];
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
                  
                 }
                 ?>
     		<img src="<?php echo $image?>" width="100%">
     		<span style="font-size: 11px;">
                 <?php 
+<<<<<<< HEAD
                 $image = "image/male_user.jpg";
                 if($user_data['gender'] == "Female")
                 {
@@ -160,6 +174,16 @@
                 if(file_exists($user_data['profile_image']))
                 {
                     $image = $image_class->get_thumb_profile($user_data['profile_image']);
+=======
+                $image = "";
+                // if($user_data['gender']== "Female")
+                // {
+                //     $image = "image/female_user.jpg";
+                // }
+                if(file_exists($user_data['profile_image']))
+                {
+                    $image = $user_data['profile_image'];
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
                  
                 }
                 ?>

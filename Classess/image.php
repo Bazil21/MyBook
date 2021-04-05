@@ -133,6 +133,7 @@ class Image
 
 		return $text;
 	}
+<<<<<<< HEAD
 
 	//resize the image
 	public function resize_image($original_filename,$resized_file_name,$max_width,$max_height)
@@ -273,5 +274,7 @@ class Image
 
 
 	}
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
 }
 ?>
