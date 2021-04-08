@@ -19,11 +19,38 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo $result;
         echo "</div>";
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
     else
     {
     	header("Location: Login.php");
     	die;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3e4c12f01edf2e06b6f1c62638ec289c28a92e4f
+>>>>>>> 3e0985ce990743b636a1368b40b832bc088a5cd3
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
     
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];

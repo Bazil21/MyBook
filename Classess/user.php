@@ -38,6 +38,13 @@ class User
 			return false;
 		}
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 
 	public function get_friends($id)
 	{
@@ -54,6 +61,14 @@ class User
 			return false;
 		}
 	}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> d75380e49c8a541285281940f4dad6e6d5cb3cbb
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 }
 
 

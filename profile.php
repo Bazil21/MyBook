@@ -8,7 +8,14 @@
     include("classess/login.php");
     include("classess/user.php");
     include("classess/post.php");
+<<<<<<< HEAD
 	include("classess/image.php");
+=======
+<<<<<<< HEAD
+	include("classess/image.php");
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 
 
     $login = new Login();
@@ -20,7 +27,11 @@
         # code...
         $post = new Post();
         $id = $_SESSION['mybook_userid'];
+<<<<<<< HEAD
         $result = $post->create_post($id,$_POST,$_FILES);
+=======
+        $result = $post->create_post($id,$_POST);
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 
         if ($result == "")
          {
@@ -46,8 +57,16 @@
         $id = $_SESSION['mybook_userid'];
         $friends = $user->get_friends($id);
 
+<<<<<<< HEAD
 		$image_class = new Image();
 
+=======
+<<<<<<< HEAD
+		$image_class = new Image();
+
+=======
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 ?>
 
 
@@ -142,16 +161,33 @@
 
     	<div style="background-color: white; text-align: center; color: #405d9b;">
             <?php 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                 $image = "image/cover_image.jpg";
                 if(file_exists($user_data['cover_image']))
                 {
                     $image = $image_class->get_thumb_cover($user_data['cover_image']);
+<<<<<<< HEAD
+=======
+=======
+                $image = "";
+                if(file_exists($user_data['cover_image']))
+                {
+                    $image = $user_data['cover_image'];
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                  
                 }
                 ?>
     		<img src="<?php echo $image?>" width="100%">
     		<span style="font-size: 11px;">
                 <?php 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                 $image = "image/male_user.jpg";
                 if($user_data['gender'] == "Female")
                 {
@@ -160,6 +196,19 @@
                 if(file_exists($user_data['profile_image']))
                 {
                     $image = $image_class->get_thumb_profile($user_data['profile_image']);
+<<<<<<< HEAD
+=======
+=======
+                $image = "";
+                // if($user_data['gender']== "Female")
+                // {
+                //     $image = "image/female_user.jpg";
+                // }
+                if(file_exists($user_data['profile_image']))
+                {
+                    $image = $user_data['profile_image'];
+>>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                  
                 }
                 ?>
@@ -204,11 +253,18 @@
 	    			</div>
 	    		</div>
 	    		<!-- post area -->
+<<<<<<< HEAD
 	    		<div style="min-height:400px; flex:2.5;padding:20px;padding-right:0px;">
 	    			<div style="border: solid thin #aaa; padding:10px; background-color: white;">
                         <form method="post" enctype="multipart/form-data">
 	    				<textarea name="post" placeholder="Whats on your mind?"></textarea>
 						<input type="file" name="file">
+=======
+	    		<div style=";flex:2.5;padding:20px;padding-right:0px;">
+	    			<div style="border: solid thin #aaa; padding:10px; background-color: white;">
+                        <form method="post">
+	    				<textarea name="post" placeholder="Whats on your mind?"></textarea>
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 	    				<input type="submit" id="post_button" value="Post">
 	    				<br><br>
                         </form>

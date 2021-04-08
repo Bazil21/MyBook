@@ -3,6 +3,7 @@
 class Post
 {
 	private $error = "";
+<<<<<<< HEAD
 	public function create_post($userid,$data, $files)
 	{
 
@@ -33,6 +34,16 @@ class Post
 			$post = addslashes($data['post']);
 			$postid = $this->create_postid();
 			$query = "insert into posts (userid,postid,post,image,has_image) values ('$userid','$postid','$post','$myimage','$has_image')";
+=======
+	public function create_post($userid,$data)
+	{
+
+		if(!empty($data['post']))
+		{
+			$post = addslashes($data['post']);
+			$postid = $this->create_postid();
+			$query = "insert into posts (userid,postid,post) values ('$userid','$postid','$post')";
+>>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 			$DB = new Database();
 			$DB->save($query);
 		}
