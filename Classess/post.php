@@ -3,14 +3,31 @@
 class Post
 {
 	private $error = "";
-<<<<<<< HEAD
 	public function create_post($userid,$data, $files)
 	{
 
-		if(!empty($data['post']) || !empty($files['file']['name']))
+		if(!empty($data['post']) || !empty($files['file']['name']) || isset($data['is_profile_image']) || isset($data['is_cover_image']))
 		{
 			$myimage = "";
 			$has_image = 0;
+			$is_profile_image = 0;
+			$is_cover_image = 0;
+
+			if(isset($data['is_profile_image']) || isset($data['is_cover_image']))
+			{
+				$myimage = $files; 
+				$has_image = 1;
+				if(isset($data['is_profile_image']))
+				{
+					$is_profile_image = 1;
+				}
+				if(isset($data['is_cover_image']))
+				{
+					$is_cover_image = 1;
+				}
+			}
+			else
+			{
 			if(!empty($files['file']['name'])){
 
 				$image_class =new Image();
@@ -31,19 +48,14 @@ class Post
 
 				$has_image = 1;
 			}
+		}
+		$post = "";
+		if(isset($data['post'])){
 			$post = addslashes($data['post']);
+		}
+			
 			$postid = $this->create_postid();
-			$query = "insert into posts (userid,postid,post,image,has_image) values ('$userid','$postid','$post','$myimage','$has_image')";
-=======
-	public function create_post($userid,$data)
-	{
-
-		if(!empty($data['post']))
-		{
-			$post = addslashes($data['post']);
-			$postid = $this->create_postid();
-			$query = "insert into posts (userid,postid,post) values ('$userid','$postid','$post')";
->>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
+			$query = "insert into posts (userid,postid,post,image,has_image,is_profile_image,is_cover_image) values ('$userid','$postid','$post','$myimage','$has_image','$is_profile_image','$is_cover_image')";
 			$DB = new Database();
 			$DB->save($query);
 		}

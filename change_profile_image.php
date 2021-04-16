@@ -46,34 +46,19 @@
 
                 if($change == "cover")
                 {
-<<<<<<< HEAD
                     if(file_exists($user_data['cover_image']))
                     {
                         unlink($user_data['cover_image']);
                     }
-=======
-<<<<<<< HEAD
->>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                             $image->resize_image($filename,$filename,1500,1500);
                 }
                 else
                 {
-<<<<<<< HEAD
                     if(file_exists($user_data['profile_image']))
                     {
                         unlink($user_data['profile_image']);
                     }
                      $image->resize_image($filename,$filename,1500,1500);
-=======
-                     $image->resize_image($filename,$filename,1500,1500);
-=======
-                            $image->crop_image($filename,$filename,1366,488);
-                }
-                else
-                {
-                     $image->crop_image($filename,$filename,800,800);
->>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
->>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                 }
                 
                  if(file_exists($filename))
@@ -84,14 +69,21 @@
                 {
                 
                             $query ="update users set cover_image = '$filename' where userid = '$userid' limit 1";
+                            $_POST['is_cover_image'] = 1;
                 }
                 else
                 {
                      $query ="update users set profile_image = '$filename' where userid = '$userid' limit 1";
+                     $_POST['is_profile_image'] = 1;
                 }
-               
+                
                 $DB = new Database();
                 $DB->save($query);
+
+                //create a post
+                $post = new Post();
+                
+                $post->create_post($userid,$_POST,$filename);
 
                 header("Location: profile.php");
                 die;
@@ -193,10 +185,6 @@
                         <input type="file" name="file">
 	    				<input type="submit" id="post_button" value="Change">
 	    				<br><br>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
                         <div style="text-align:center;">
                         <br><br>
                         <?php 
@@ -214,11 +202,6 @@
 
                         ?>
                         </div>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> ac9a81da7da5fa9b8719b7566b05d9698003e8c4
->>>>>>> fa29536e1353ef1d4631eb07169bdf0396d838ae
 	    			</div>
 	    		</form>
 
